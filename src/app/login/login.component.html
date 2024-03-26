@@ -1,0 +1,31 @@
+<div class="login-page">
+    <img src="../../assets/logo.png" alt="wissen logo"/>
+    <h6 class="sign-label">Hello there, Sign in to continue</h6>
+    <form class="sign-form" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+        <div class="form-group">
+			<label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" formControlName="email" placeholder="Please enter email">
+      <small
+        *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.required">
+          Please enter email address.!
+      </small>
+
+      <small
+      *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.email">
+        Email address not well formed.!
+      </small>
+    </div>
+        <div class="form-group password">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" formControlName="password" id="password" placeholder="Please enter Password">
+          <i class="bi bi-eye-slash eye" id="togglePassword"></i>
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" formControlName="terms" class="form-check-input" id="exampleCheck1">
+          <span class="form-check-label" for="exampleCheck1">By creating or logging into account, you 
+            are agreeing with our <span class="terms">Terms & Conditions and Privacy policys
+            </span></span>
+        </div>
+        <button type="submit" class="btn btn-light">Next</button>
+      </form>
+</div>
